@@ -12,9 +12,12 @@
 
 + (instancetype)barButtonItemWithBackgroundImage:(UIImage *)backgroundImage
                                 highlightedImage:(UIImage *)highlightedImage
+                                           title:(NSString *)title
+                                       titleFont:(CGFloat)fontSize
                                           target:(id)target
                                           action:(SEL)action
                                 forControlEvents:(UIControlEvents)controlEvents {
+    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
     
@@ -22,6 +25,9 @@
         
         [button setBackgroundImage:highlightedImage forState:UIControlStateHighlighted];
     }
+    [button setTitle:title forState:UIControlStateNormal];
+    // button的字体大小
+    button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
     // 必须要设置控件尺寸，这里选择根据内容自适应
     [button sizeToFit];
     
@@ -30,4 +36,6 @@
     
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
+
+
 @end

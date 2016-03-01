@@ -7,8 +7,10 @@
 //
 
 #import "HEFShoesViewController.h"
+#import "UIBarButtonItem+HEFBarButtonItem.h"
 
-@interface HEFShoesViewController ()<UIWebViewDelegate>
+
+@interface HEFShoesViewController ()<UIWebViewDelegate,UISearchBarDelegate>
 @property (nonatomic, weak) UIActivityIndicatorView *loadingView;
 
 
@@ -18,10 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.navigationController.navigationBar.hidden = YES;
-    
+    // 设置导航条
+    [self setNavigationBar];
     // 1. 创建webView, 展示首页
-    UIWebView *homeWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, _WIDTH,_HEIGHT)];
+    UIWebView *homeWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, _WIDTH,_HEIGHT - 64)];
     // 添加代理  对webView的编辑
     homeWebView.delegate = self;
     // 根据屏幕大小自动调整页面尺寸
@@ -55,7 +57,30 @@
     [self.loadingView removeFromSuperview];
     
 }
-
+// 设置导航条
+- (void)setNavigationBar{
+    // 1. 创建searchBar
+    UISearchBar *mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(70, 0, _WIDTH - 100, 30)];
+    mySearchBar.placeholder = @"输入鞋品类型、款式等关键字";
+    
+    
+    mySearchBar.delegate = self;
+    
+    //    [mySearchBar setInputAccessoryView:;]
+    // 2. 中间添加searchBar
+    [self.navigationController.navigationBar addSubview:mySearchBar];
+    
+    // 3. 左侧百货区
+    self.navigationItem.leftBarButtonItem
+    = [UIBarButtonItem barButtonItemWithBackgroundImage:nil
+                                       highlightedImage:nil
+                                                  title:@"鞋品区"
+                                              titleFont:14
+                                                 target:nil
+                                                 action:nil
+                                       forControlEvents:UIControlEventTouchUpInside];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

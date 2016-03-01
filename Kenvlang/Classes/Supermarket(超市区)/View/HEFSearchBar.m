@@ -7,6 +7,7 @@
 //
 
 #import "HEFSearchBar.h"
+#import "UIImage+SCImage.h"
 
 @implementation HEFSearchBar
 
@@ -19,6 +20,9 @@
         // 设置字体
         self.font = [UIFont systemFontOfSize:14];
         
+        // 设置背景
+        self.background = [UIImage stretchableImageNamed:@"searchbar_textfield_background"];
+        
         // 设置左边的view
         [self LeftView];
     }
@@ -28,10 +32,10 @@
 
 - (instancetype)init {
     // 设置frame
-    CGFloat width = HEFMainScreenBounds.size.width - 110;
+    CGFloat width = HEFMainScreenBounds.size.width - 100;
     CGFloat height = 30;
-    CGFloat X = (HEFMainScreenBounds.size.width - width) * 0.5;
-    CGFloat Y = 7;
+    CGFloat X = (HEFMainScreenBounds.size.width - width) * 0.5 + 20;
+    CGFloat Y = 6;
     CGRect frame = CGRectMake(X, Y, width, height);
     
     return [self initWithFrame:frame];
@@ -41,7 +45,7 @@
 - (void)LeftView{
     
     // initWithImage:默认UIImageView的尺寸跟图片一样
-    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_search_bar"]];
+    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:[UIImage stretchableImageNamed:@"bg_search_bar"]];
     
     
     self.leftView = leftImageView;

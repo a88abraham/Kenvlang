@@ -75,7 +75,7 @@
  *
  *  @param viewController vc
  */
-+ (void) showEmptyDataNoticeViewInViewController:(UIViewController *)viewController;
+//+ (void) showEmptyDataNoticeViewInViewController:(UIViewController *)viewController;
 
 
 /**
@@ -83,7 +83,7 @@
  *
  *  @param vc vc
  */
-+ (void) removeNoticeViewInViewController:(UIViewController *)vc;
+//+ (void) removeNoticeViewInViewController:(UIViewController *)vc;
 
 @end
 

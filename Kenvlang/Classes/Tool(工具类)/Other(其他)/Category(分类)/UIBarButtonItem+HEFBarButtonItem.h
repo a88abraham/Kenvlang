@@ -16,6 +16,8 @@
  *
  *  @param backgroundImage  背景图片
  *  @param highlightedImage 高亮图片
+ *  @param title            标题
+ *  @param titleFont        标题字体大小
  *  @param target           动作目标
  *  @param action           动作
  *  @param controlEvents    事件类型
@@ -24,6 +26,8 @@
  */
 + (instancetype)barButtonItemWithBackgroundImage:(UIImage *)backgroundImage
                                 highlightedImage:(UIImage *)highlightedImage
+                                           title:(NSString *)title
+                                       titleFont:(CGFloat)fontSize
                                           target:(id)target
                                           action:(SEL)action
                                 forControlEvents:(UIControlEvents)controlEvents;
