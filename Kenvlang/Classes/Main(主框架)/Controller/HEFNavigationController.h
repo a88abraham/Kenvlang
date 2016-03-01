@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HEFNavigationController.h
 //  Kenvlang
 //
 //  Created by 贺恩发 on 16/1/26.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface HEFNavigationController : UINavigationController
 
 @end
-
